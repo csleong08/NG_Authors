@@ -1,0 +1,19 @@
+<div style="text-align:center">
+  <p><a [routerLink]="['/']">Home</a></p>
+  <p>Add a new author: </p>
+  <p *ngFor="let error of errors">{{ error }}</p>
+  <form (submit)="createAuthor()">
+    <p>{{ author.errors | json }}</p>
+    <p>{{ author.valid | json }}</p>
+    <p>Name: <input type="text" placeholder="Author Name" name="author" 
+      required
+      minlength="2"
+      [(ngModel)]="newAuthor.author"
+      #author="ngModel">
+    </p>
+    <input type="submit" value="Submit">
+    <button [routerLink]="['/']">Cancel</button>
+  </form>
+  <!-- <button (click)="Home()">Cancel</button> -->
+
+</div>
